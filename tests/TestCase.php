@@ -21,12 +21,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected function getClient(): DynamoDbClient
     {
         $sdk = new \Aws\Sdk([
-            'endpoint'   => 'http://localhost:8000',
+            'endpoint'   => env('DYNAMODB_ENDPOINT'),
             'region'   => 'us-east-1',
             'version'  => 'latest',
             'credentials' => [
-                'key' => 'S3_KEY',
-                'secret' => 'S3_SECRET'
+                'key' => env('AWS_ACCESS_KEY_ID'),
+                'secret' => env('AWS_SECRET_ACCESS_KEY')
             ]
         ]);
 
