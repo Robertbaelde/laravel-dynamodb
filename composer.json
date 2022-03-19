@@ -1,0 +1,29 @@
+{
+    "name": "robertbaelde/laravel-dynamodb",
+    "require": {
+        "php": "8.1",
+        "aws/aws-sdk-php": "^3.215",
+        "illuminate/contracts": "^9.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.1",
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Robertbaelde\\LaravelDynamodb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Robertbaelde\\LaravelDynamodb\\Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Robertbaelde",
+            "email": "robert_baelde@hotmail.com"
+        }
+    ]
+}
