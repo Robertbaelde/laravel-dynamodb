@@ -1,7 +1,7 @@
 {
     "name": "robertbaelde/laravel-dynamodb",
     "require": {
-        "php": "8.1",
+        "php": "^8.1",
         "aws/aws-sdk-php": "^3.215",
         "illuminate/contracts": "^9.5"
     },
