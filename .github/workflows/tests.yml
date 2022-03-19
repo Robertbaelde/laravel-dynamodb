@@ -64,7 +64,3 @@ jobs:
           DYNAMODB_ENDPOINT: "http://localhost:8000"
           AWS_ACCESS_KEY_ID: random_key
           AWS_SECRET_ACCESS_KEY: random_secret
-
-      - name: Run PHP CS Fixer
-        if: ${{ matrix.experimental == false }}
-        run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
