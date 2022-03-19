@@ -7,8 +7,7 @@ class Key
     public function __construct(
         public readonly string $attributeName,
         public readonly AttributeType $attributeType
-    )
-    {
+    ) {
     }
 
     public static function string(string $attributeName): self

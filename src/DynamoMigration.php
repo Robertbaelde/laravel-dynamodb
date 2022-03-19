@@ -9,11 +9,11 @@ abstract class DynamoMigration
         $this->validate();
     }
 
-    public abstract function getTableName(): string;
+    abstract public function getTableName(): string;
 
-    public abstract function getPartitionKey(): Key;
+    abstract public function getPartitionKey(): Key;
 
-    public abstract function getBillingMode(): BillingMode;
+    abstract public function getBillingMode(): BillingMode;
 
     public function getSortKey(): ?Key
     {
@@ -34,10 +34,8 @@ abstract class DynamoMigration
 
     private function validate(): void
     {
-        foreach ($this->getGlobalSecondaryIndexes() as $gsi){
+        foreach ($this->getGlobalSecondaryIndexes() as $gsi) {
             assert($gsi instanceof GlobalSecondaryIndex);
         }
     }
-
-
 }

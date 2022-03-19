@@ -7,7 +7,7 @@ class Projection
     public function __construct(
         public readonly ProjectionType $projectionType,
         public readonly array $nonKeyAttributes = []
-    ){
+    ) {
     }
 
     public static function all(): self
@@ -17,7 +17,7 @@ class Projection
 
     public function toApi(): array
     {
-        if($this->projectionType !== ProjectionType::Include){
+        if ($this->projectionType !== ProjectionType::Include) {
             return [
                 'ProjectionType' => $this->projectionType->value,
             ];
@@ -26,6 +26,5 @@ class Projection
             'ProjectionType' => $this->projectionType->value,
             'NonKeyAttributes' => $this->nonKeyAttributes
         ];
-
     }
 }

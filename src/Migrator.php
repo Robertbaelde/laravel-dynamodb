@@ -9,14 +9,12 @@ class Migrator
     public function __construct(
         protected DynamoDbClient $client,
         protected string $prefix = '',
-    )
-    {
-
+    ) {
     }
 
     public function run(DynamoMigration ...$dynamoMigrations)
     {
-        foreach ($dynamoMigrations as $migration){
+        foreach ($dynamoMigrations as $migration) {
             $tableName = $this->prefix . $migration->getTableName();
             $this->client->createTable(
                 array_merge(
@@ -54,7 +52,7 @@ class Migrator
     {
         $globalSecondaryIndexes = [];
         /** @var GlobalSecondaryIndex $globalSecondaryIndex */
-        foreach ($migration->getGlobalSecondaryIndexes() as $globalSecondaryIndex){
+        foreach ($migration->getGlobalSecondaryIndexes() as $globalSecondaryIndex) {
             $globalSecondaryIndexes[] = [
                 'IndexName' => $globalSecondaryIndex->name,
                 'KeySchema' => [
@@ -70,7 +68,7 @@ class Migrator
                 'Projection' => $globalSecondaryIndex->projection->toApi()
             ];
         }
-        if(count($globalSecondaryIndexes) === 0){
+        if (count($globalSecondaryIndexes) === 0) {
             return [];
         }
         return ['GlobalSecondaryIndexes' => $globalSecondaryIndexes];
@@ -108,6 +106,4 @@ class Migrator
 
         return ['AttributeDefinitions' => $attributeDefinitions];
     }
-
-
 }
