@@ -23,10 +23,10 @@ class TruncateTables
 
             foreach($scanResult->toArray()['Items'] as $item){
                 $key = [
-                    $item[$migration->getPartitionKey()->attributeName] => $item[$migration->getPartitionKey()->attributeName],
+                    $migration->getPartitionKey()->attributeName => $item[$migration->getPartitionKey()->attributeName]
                 ];
 
-                if(array_key_exists($migration->getSortKey()->attributeName, $item)){
+                if($migration->getSortKey() !== null && array_key_exists($migration->getSortKey()->attributeName, $item)){
                     $key[$migration->getSortKey()->attributeName] = $item[$migration->getSortKey()->attributeName];
                 }
 
